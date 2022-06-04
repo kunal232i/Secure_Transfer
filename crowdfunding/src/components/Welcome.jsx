@@ -5,8 +5,8 @@ import { BsInfoCircle } from "react-icons/bs";
 
 import { Loader } from "./";
 
-const companyCommonStyles =
-  "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
+// const companyCommonStyles =
+//   "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
 
 const Welcome = () => {
   const connectWallet = () => {};
@@ -21,7 +21,7 @@ const Welcome = () => {
             Explore the web3.0 here with crowdfunding application.
           </p>
           //for wallet connect
-          {!currentAccount && (
+          {
             <button
               type="button"
               onClick={connectWallet}
@@ -32,7 +32,7 @@ const Welcome = () => {
                 Connect Wallet
               </p>
             </button>
-          )}
+          }
         </div>
 
         <div className="flex flex-col flex-1 items-center justify-start w-full mf:mt-0 mt-10">
@@ -46,7 +46,7 @@ const Welcome = () => {
               </div>
               <div>
                 <p className="text-white font-light text-sm">
-                  {shortenAddress(currentAccount)}
+                  {/* {shortenAddress(currentAccount)} */}
                 </p>
                 <p className="text-white font-semibold text-lg mt-1">
                   Ethereum
