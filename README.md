@@ -9,3 +9,5 @@ npm run dev
 
 47.54 V
 // .jsx for React applications
+
+// Fix vite local host
