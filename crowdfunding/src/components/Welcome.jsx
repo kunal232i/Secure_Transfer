@@ -3,6 +3,7 @@ import { AiFillPlayCircle } from "react-icons/ai";
 import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
 
+import { crowdfundingContext } from "../context/crowdfundingContext";
 import { Loader } from "./";
 
 const companyCommonStyles =
@@ -20,8 +21,8 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
 );
 
 const Welcome = () => {
+  // const { connectWallet } = useContext(crowdfundingContext);
   const connectWallet = () => {};
-
   const handleChange = () => {};
   const handleSubmit = () => {};
 
@@ -39,7 +40,7 @@ const Welcome = () => {
           {/* {!currentAccount && ( */}
           <button
             type="button"
-            // onClick={connectWallet}
+            onClick={connectWallet}
             className="flex flex-row justify-center items-center my-5 bg-[#f592b1] p-3 rounded-full cursor-pointer hover:bg-[#ff748c]"
           >
             <AiFillPlayCircle className="text-white mr-2" />
