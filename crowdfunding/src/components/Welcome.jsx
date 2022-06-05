@@ -33,7 +33,7 @@ const Welcome = () => {
             Send Crypto <br /> across the world
           </h1>
           <p className="text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-base">
-            Explore the web3.0 here with crowdfunding application.
+            Crowdfunding using the powers of Crypto & Blockchain
           </p>
           //for wallet connect
           {/* {!currentAccount && ( */}
@@ -82,29 +82,39 @@ const Welcome = () => {
             </div>
           </div>
         </div>
+        <p className="text-left mt-5 text-white font-light mf:w-9/12 w-11/12 text-base">
+          Create a New Campaign
+        </p>
         <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
           <Input
-            placeholder="Address To"
-            name="addressTo"
-            type="text"
-            handleChange={handleChange}
-          />
-          <Input
-            placeholder="Amount (ETH)"
+            placeholder="Minimum Contribution Amount"
             name="amount"
             type="number"
             handleChange={handleChange}
           />
+
+          {/* <Input
+            placeholder="Address To"
+            name="addressTo"
+            type="text"
+            handleChange={handleChange}
+          /> */}
           <Input
-            placeholder="Keyword (Gif)"
-            name="keyword"
+            placeholder="Campaign Name"
+            name="Campaign"
             type="text"
             handleChange={handleChange}
           />
           <Input
-            placeholder="Enter Message"
+            placeholder="Campaign Description"
             name="message"
             type="text"
+            handleChange={handleChange}
+          />
+          <Input
+            placeholder="Target Amount"
+            name="amount"
+            type="number"
             handleChange={handleChange}
           />
 
@@ -118,7 +128,7 @@ const Welcome = () => {
               onClick={handleSubmit}
               className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
             >
-              send now
+              Create
             </button>
           )}
         </div>
