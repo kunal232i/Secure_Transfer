@@ -23,13 +23,17 @@ const createEthereumContract = () => {
 };
 
 export const TransactionsProvider = ({ children }) => {
+  const [currentAccount, setCurrentAccount] = useState("");
   const [formData, setformData] = useState({
     addressTo: "",
     amount: "",
     keyword: "",
     message: "",
   });
-  const [currentAccount, setCurrentAccount] = useState("");
+
+  const handleChange = (e, name) => {
+    setformData((prevState) => ({ ...prevState, [name]: e.target.value }));
+  };
   const checkIfWalletIsConnect = async () => {
     try {
       if (!ethereum) return alert("Please install MetaMask.");
@@ -64,13 +68,31 @@ export const TransactionsProvider = ({ children }) => {
       throw new Error("No ethereum object");
     }
   };
+  const sendTransaction = async () => {
+    try {
+      if (!ethereum) return alert("Please install metamask");
+      const { addressTo, Campaign, message, amount } = formData;
+      createEthereumContract();
+    } catch (error) {
+      console.log(error);
+      throw new Error("No ethereum object");
+    }
+  };
 
   useEffect(() => {
     checkIfWalletIsConnect();
   }, []);
 
   return (
-    <crowdfundingContext.Provider value={{ connectWallet, currentAccount }}>
+    <crowdfundingContext.Provider
+      value={{
+        connectWallet,
+        currentAccount,
+        formData,
+        sendTransaction,
+        handleChange,
+      }}
+    >
       {children}
     </crowdfundingContext.Provider>
   );
