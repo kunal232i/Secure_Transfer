@@ -30,6 +30,11 @@ export const TransactionsProvider = ({ children }) => {
     keyword: "",
     message: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
+  const [transactionCount, setTransactionCount] = useState(
+    localStorage.getItem("Count")
+  );
+  const [transactions, setTransactions] = useState([]);
 
   const handleChange = (e, name) => {
     setformData((prevState) => ({ ...prevState, [name]: e.target.value }));
@@ -72,7 +77,37 @@ export const TransactionsProvider = ({ children }) => {
     try {
       if (!ethereum) return alert("Please install metamask");
       const { addressTo, Campaign, message, amount } = formData;
-      createEthereumContract();
+      const CrowdfundingContract = createEthereumContract();
+      const parsedAmount = ethers.utils.parseEther(amount); // decimal to gwei
+
+      await ethereum.request({
+        method: "eth_sendTransaction",
+        params: [
+          {
+            from: currentAccount,
+            to: addressTo,
+            gas: "0x5208",
+            value: parsedAmount._hex,
+          },
+        ],
+      });
+      const transactionHash = await transactionsContract.addToBlockchain(
+        addressTo,
+        Campaign,
+        message,
+        parsedAmount
+      );
+      setIsLoading(true);
+      console.log(`Loading - ${transactionHash.hash}`);
+      await transactionHash.wait();
+      console.log(`Success - ${transactionHash.hash}`);
+      setIsLoading(false);
+
+      const transactionsCount =
+        await transactionsContract.getTransactionCount();
+
+      setTransactionCount(transactionsCount.toNumber());
+      window.location.reload();
     } catch (error) {
       console.log(error);
       throw new Error("No ethereum object");

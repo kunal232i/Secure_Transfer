@@ -15,4 +15,5 @@ npx hardhat help
 ```
 
 //.env for url and pass
+// or export url_name=url and pass_name=pass
 // yarn add hardhat , yarn hardhat node, yarn hardhat run --network rinkeby scripts/deploy.js,
