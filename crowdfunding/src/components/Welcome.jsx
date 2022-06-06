@@ -32,11 +32,11 @@ const Welcome = () => {
   } = useContext(crowdfundingContext);
 
   const handleSubmit = (e) => {
-    const { addressTo, Campaign, message, amount } = formData;
+    const { addressTo, amount, keyword, message } = formData;
 
     e.preventDefault();
 
-    if (!addressTo || !Campaign || !message || !amount) return;
+    if (!addressTo || !amount || !keyword || !message) return;
 
     sendTransaction();
   };
@@ -106,13 +106,6 @@ const Welcome = () => {
           Create a New Campaign
         </p>
         <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
-          {/* <Input
-            placeholder="Minimum Contribution Amount"
-            name="amount"
-            type="number"
-            handleChange={handleChange}
-          /> */}
-
           <Input
             placeholder="Address To"
             name="addressTo"
@@ -125,10 +118,9 @@ const Welcome = () => {
             type="number"
             handleChange={handleChange}
           />
-
           <Input
             placeholder="Keyword (Gif)"
-            name="Keyword"
+            name="keyword"
             type="text"
             handleChange={handleChange}
           />

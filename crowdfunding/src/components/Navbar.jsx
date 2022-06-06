@@ -1,6 +1,6 @@
 import React from "react";
-// import { HiMenuAlt4 } from "react-icons/hi";
-// import { AiOutlineClose } from "react-icons/ai";
+import { HiMenuAlt4 } from "react-icons/hi";
+import { AiOutlineClose } from "react-icons/ai";
 
 import logo from "../images/logo.png";
 
@@ -10,7 +10,7 @@ const NavBarItem = ({ title, classprops }) => (
 
 const Navbar = () => {
   //   //for mobile devices
-  //   const [toggleMenu, setToggleMenu] = React.useState(false);
+  const [toggleMenu, setToggleMenu] = React.useState(false);
 
   return (
     <nav className="w-full flex md:justify-center justify-between items-center p-4">
@@ -27,7 +27,6 @@ const Navbar = () => {
           Login
         </li>
       </ul>
-      {/* For Mobile
       <div className="flex relative">
         {!toggleMenu && (
           <HiMenuAlt4
@@ -62,7 +61,7 @@ const Navbar = () => {
             )}
           </ul>
         )}
-      </div> */}
+      </div>
     </nav>
   );
 };
