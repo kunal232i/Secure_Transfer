@@ -30,6 +30,7 @@ export const TransactionsProvider = ({ children }) => {
     keyword: "",
     message: "",
   });
+
   const [isLoading, setIsLoading] = useState(false);
   const [transactionCount, setTransactionCount] = useState(
     localStorage.getItem("Count")
@@ -123,6 +124,7 @@ export const TransactionsProvider = ({ children }) => {
       value={{
         connectWallet,
         currentAccount,
+        transactions,
         formData,
         sendTransaction,
         handleChange,
