@@ -4,6 +4,7 @@ import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
 
 import { crowdfundingContext } from "../context/crowdfundingContext";
+import { shortenAddress } from "../utils/shortenAddress";
 import { Loader } from "./";
 
 const companyCommonStyles =
@@ -90,7 +91,9 @@ const Welcome = () => {
                 <BsInfoCircle fontSize={17} color="#fff" />
               </div>
               <div>
-                <p className="text-white font-light text-sm">Address</p>
+                <p className="text-white font-light text-sm">
+                  {shortenAddress(currentAccount)}
+                </p>
                 <p className="text-white font-semibold text-lg mt-1">
                   Ethereum
                 </p>
@@ -116,21 +119,22 @@ const Welcome = () => {
             handleChange={handleChange}
           />
           <Input
-            placeholder="Campaign Name"
-            name="Campaign"
-            type="text"
-            handleChange={handleChange}
-          />
-          <Input
-            placeholder="Campaign Description"
-            name="message"
-            type="text"
-            handleChange={handleChange}
-          />
-          <Input
-            placeholder="Target Amount"
+            placeholder="Amount (ETH)"
             name="amount"
             type="number"
+            handleChange={handleChange}
+          />
+
+          <Input
+            placeholder="Keyword (Gif)"
+            name="Keyword"
+            type="text"
+            handleChange={handleChange}
+          />
+          <Input
+            placeholder="Enter Message"
+            name="message"
+            type="text"
             handleChange={handleChange}
           />
 

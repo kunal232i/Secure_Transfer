@@ -91,7 +91,7 @@ export const TransactionsProvider = ({ children }) => {
           },
         ],
       });
-      const transactionHash = await transactionsContract.addToBlockchain(
+      const transactionHash = await CrowdfundingContract.addToBlockchain(
         addressTo,
         Campaign,
         message,
@@ -104,7 +104,7 @@ export const TransactionsProvider = ({ children }) => {
       setIsLoading(false);
 
       const transactionsCount =
-        await transactionsContract.getTransactionCount();
+        await CrowdfundingContract.getTransactionCount();
 
       setTransactionCount(transactionsCount.toNumber());
       window.location.reload();
