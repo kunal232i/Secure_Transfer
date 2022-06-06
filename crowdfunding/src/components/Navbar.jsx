@@ -9,7 +9,6 @@ const NavBarItem = ({ title, classprops }) => (
 );
 
 const Navbar = () => {
-  //   //for mobile devices
   const [toggleMenu, setToggleMenu] = React.useState(false);
 
   return (
