@@ -49,7 +49,8 @@ const Welcome = () => {
             Send Crypto <br /> across the world
           </h1>
           <p className="text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-base">
-            Crowdfunding using the powers of Crypto & Blockchain
+            Explore the crypto world. Buy and sell cryptocurrencies easily on
+            securetransfer.
           </p>
 
           {!currentAccount && (
@@ -102,10 +103,7 @@ const Welcome = () => {
             </div>
           </div>
         </div>
-        <p className="text-left mt-5 text-white font-light mf:w-9/12 w-11/12 text-base">
-          Create a New Campaign
-        </p>
-        <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
+        <div className="p-5 sm:w-98 w-full flex flex-col justify-start items-center blue-glassmorphism">
           <Input
             placeholder="Address To"
             name="addressTo"
