@@ -1,12 +1,10 @@
 const main = async () => {
-  const CrowdfundingFactory = await hre.ethers.getContractFactory(
-    "crowdfunding"
-  );
-  const CrowdfundingContract = await CrowdfundingFactory.deploy();
+  const TransactionFactory = await hre.ethers.getContractFactory("transaction");
+  const TransactionContract = await TransactionFactory.deploy();
 
-  await CrowdfundingContract.deployed();
+  await TransactionContract.deployed();
 
-  console.log("Transactions address: ", CrowdfundingContract.address);
+  console.log("Transactions address: ", TransactionContract.address);
 };
 
 const runMain = async () => {
