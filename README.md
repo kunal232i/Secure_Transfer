@@ -1,8 +1,8 @@
-# CROWDFUNDING
+# Secure_Transfer
 
-Crowd Funding Platform in Web3.0
+Fund Transfering Platform in Web3.0
 
-./crowdfunding
+How to start the project in gitpod:
 yarn install
 yarn start
 
